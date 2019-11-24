@@ -2,21 +2,27 @@ state("CodeVein-Win64-Shipping")
 {
 }
 
-state("CodeVein-Win64-Shipping", "1.9913.8.7163")
-{
-  bool isLoading: 0x3D262D0;
-  bool notTitleScreen : 0x40CCF44;
-}
-
 state("CodeVein-Win64-Shipping", "1.9903.8.6465")
 {
   bool isLoading : 0x3C482D0;
   bool notTitleScreen : 0x402B2C4;
 }
 
+state("CodeVein-Win64-Shipping", "1.9913.8.7163")
+{
+  bool isLoading : 0x3D262D0;
+  bool notTitleScreen : 0x40CCF44;
+}
+
+state("CodeVein-Win64-Shipping", "1.9913.8.8150")
+{
+  bool isLoading : 0x3D272D0;
+  bool notTitleScreen : 0x40CDFC4;
+}
+
 init
 {
-  string[] versions = {"1.9903.8.6465", "1.9913.8.7163"};
+  string[] versions = {"1.9903.8.6465", "1.9913.8.7163", "1.9913.8.8150"};
 
   FileVersionInfo fvi = modules.First().FileVersionInfo;
   string fileVersion = String.Format("{0}.{1}.{2}.{3}",
