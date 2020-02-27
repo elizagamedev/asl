@@ -32,9 +32,21 @@ state("CodeVein-Win64-Shipping", "1.9950.9.953")
   bool notTitleScreen : 0x412ABC4;
 }
 
+state("CodeVein-Win64-Shipping", "1.9994.9.1635")
+{
+  bool isLoading : 0x3D853B0;
+  bool notTitleScreen : 0x427E01C;
+}
+
+state("CodeVein-Win64-Shipping", "2.45.9.2281")
+{
+  bool isLoading : 0x4124780;
+  bool notTitleScreen : 0x3D99F70;
+}
+
 init
 {
-  string[] versions = {"1.9903.8.6465", "1.9913.8.7163", "1.9913.8.8150", "1.9913.8.9227", "1.9950.9.953"};
+  string[] versions = {"1.9903.8.6465", "1.9913.8.7163", "1.9913.8.8150", "1.9913.8.9227", "1.9950.9.953", "1.9994.9.1635", "2.45.9.2281"};
 
   FileVersionInfo fvi = modules.First().FileVersionInfo;
   string fileVersion = String.Format("{0}.{1}.{2}.{3}",
@@ -93,4 +105,3 @@ isLoading
 {
   return vars.isLoading;
 }
-
