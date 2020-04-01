@@ -32,28 +32,29 @@ state("CodeVein-Win64-Shipping", "1.9950.9.953")
   bool notTitleScreen : 0x412ABC4;
 }
 
-state("CodeVein-Win64-Shipping", "1.9994.9.1635")
+// From this patch onwards, autostart no longer works with the original method.
+// The behaviour of the variable has changed and no longer keeps track of the title screen.
+state("CodeVein-Win64-Shipping", "2.85.9.3312")
 {
-  bool isLoading : 0x3D853B0;
-  bool notTitleScreen : 0x427E01C;
+  bool isLoading : 0x413A300;
+  bool notTitleScreen : 0;
 }
 
-state("CodeVein-Win64-Shipping", "2.45.9.2281")
-{
-  bool isLoading : 0x4124780;
-  bool notTitleScreen : 0x3D99F70;
+startup {
+  settings.Add("note1", true , "Note: Auto Start is disabled from version 1.30 and onwards");
 }
 
 init
 {
-  string[] versions = {"1.9903.8.6465", "1.9913.8.7163", "1.9913.8.8150", "1.9913.8.9227", "1.9950.9.953", "1.9994.9.1635", "2.45.9.2281"};
-
+  string[] versions = {"1.9903.8.6465", "1.9913.8.7163", "1.9913.8.8150", "1.9913.8.9227", "1.9950.9.953", "2.85.9.3312"};
+  
   FileVersionInfo fvi = modules.First().FileVersionInfo;
   string fileVersion = String.Format("{0}.{1}.{2}.{3}",
 				     fvi.FileMajorPart,
 				     fvi.FileMinorPart,
 				     fvi.FileBuildPart,
 				     fvi.FilePrivatePart);
+
   if (Array.IndexOf(versions, fileVersion) >= 0) {
     version = fileVersion;
   } else {
